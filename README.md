@@ -67,11 +67,12 @@ Here, the forecast for next required no of days are displayed after getting from
 
 This graph shows the forecasting results after getting it from the trained LSTM Model as well as the previous data from the csv file.
 
-### 4. Forecasting Results
+### 4. Forecasting Statistics
 
-![Output Graph](Screenshots/Output%20Graph.png)
+![Statistics](Screenshots/Statistics.png)
 
-This page displays the calculations obtained from the above forecasts.
+This page displays the Statistics obtained from the above forecasts.
+
 
 
 
