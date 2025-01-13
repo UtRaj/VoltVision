@@ -1,6 +1,6 @@
 # **Energy Demand Forecasting**
 
-This repository contains code for forecasting energy demand using various machine learning models.
+This repository contains code for forecasting energy demand using a forecasting model for electricity consumption in Finland using LSTM (Long Short-Term Memory) neural network.
 
 ## **Introduction**
 Energy demand forecasting is crucial for efficient energy management and planning. This project aims to predict future energy demand using historical data and machine learning techniques.
