@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Consumption Forecast</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #c9c9ff, #b0e0e6); /* Soft Lavender to Powder Blue */
+            font-family: 'Roboto', sans-serif;
+            color: #333333;
+        }
+        .container {
+            margin-top: 60px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .btn-custom {
+            background-color: #7fd1b9; /* Light Mint Green */
+            color: white;
+            font-weight: bold;
+            border-radius: 50px;
+        }
+        .btn-custom:hover {
+            background-color: #62bfa2; /* Slightly Darker Green */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .heading-text {
+            font-size: 24px;
+            color: #4d4d4d;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        .main-heading {
+            color: #3a3a3a;
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .sub-heading {
+            font-size: 20px;
+            color: #707070;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        .form-label {
+            color: #707070;
+        }
+        .form-control {
+            background-color: #f7f7f7;
+            color: #333333;
+            border: 1px solid #e0e0e0;
+        }
+        .form-control:focus {
+            border-color: #7fd1b9;
+            box-shadow: 0 0 5px rgba(127, 209, 185, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="main-heading">Electricity Consumption Forecast</h1>
+    <p class="sub-heading">Predict future electricity consumption based on historical data. Let’s get started!</p>
+    <form method="post">
+        <div class="mb-3">
+            <label class="form-label">Enter the number of past days to use as input:</label>
+            <input type="number" name="past_days" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Enter the number of future days to forecast:</label>
+            <input type="number" name="future_days" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-custom w-100">Predict</button>
+    </form>
+</div>
+
+</body>
+</html>

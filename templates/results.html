@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forecast Results - Electricity Consumption</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background: #f7f9fc; /* Light background for comfort */
+            font-family: 'Roboto', sans-serif;
+            color: #333; /* Dark grey text for good readability */
+        }
+        .container {
+            margin-top: 60px;
+            padding: 40px;
+            background: #ffffff; /* White background for the results box */
+            border-radius: 15px;
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+        }
+        .btn-custom {
+            background-color: #3d80d5; /* Elegant blue for buttons */
+            color: white;
+            font-weight: 600;
+            border-radius: 50px; /* Rounded button */
+        }
+        .btn-custom:hover {
+            background-color: #2b5fa0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .heading-text {
+            color: #333;
+            font-weight: bold;
+        }
+        .back-btn {
+            background-color: #3d80d5;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 25px;
+            border-radius: 50px;
+        }
+        .back-btn:hover {
+            background-color: #2b5fa0;
+        }
+        .forecast-heading {
+            color: #3d80d5;
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .stat-heading {
+            color: #3d80d5;
+            font-size: 28px;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 40px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        .statistics {
+            margin-top: 30px;
+            background-color: #fafbfc; /* Light background for statistics */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        .stat-item {
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .img-fluid {
+            max-width: 80%;
+            margin: 20px auto;
+            display: block;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h4 class="forecast-heading">Forecast Results</h4>
+    <button class="btn back-btn" onclick="window.location.href='/'">Back to Prediction</button>
+
+    <!-- Forecast Results Table -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Predicted Consumption (MWh)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for date, value in forecast_zipped %}
+            <tr>
+                <td>{{ date }}</td>
+                <td>{{ value | round(2) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Plot Image -->
+    <div class="text-center">
+        <img src="data:image/png;base64,{{ plot_url }}" class="img-fluid rounded shadow">
+    </div>
+
+    <!-- Forecast Statistics -->
+    <div class="statistics">
+        <h5 class="stat-heading">Forecast Statistics</h5>
+        <div class="stat-item">
+            <strong>Average Forecasted Consumption:</strong> {{ forecast_mean | round(2) }} MWh
+        </div>
+        <div class="stat-item">
+            <strong>Minimum Forecasted Consumption:</strong> {{ forecast_min | round(2) }} MWh
+        </div>
+        <div class="stat-item">
+            <strong>Maximum Forecasted Consumption:</strong> {{ forecast_max | round(2) }} MWh
+        </div>
+        <div class="stat-item">
+            <strong>Standard Deviation:</strong> {{ forecast_std | round(2) }} MWh
+        </div>
+        <div class="stat-item">
+            <strong>Median Forecasted Consumption:</strong> {{ forecast_median | round(2) }} MWh
+        </div>
+        <div class="stat-item">
+            <strong>Range of Forecasted Consumption:</strong> {{ forecast_range | round(2) }} MWh
+        </div>
+        <div class="stat-item">
+            <strong>Overall Average Consumption (Historical):</strong> {{ overall_mean | round(2) }} MWh
+        </div>
+        <div class="stat-item">
+            <strong>Forecast Trend:</strong> The forecast is <strong>{{ trend_direction }}</strong>
+        </div>
+        <div class="stat-item">
+            <strong>Percentage Change in Forecast:</strong> {{ percent_change | round(2) }}%
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
