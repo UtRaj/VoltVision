@@ -1,4 +1,4 @@
-# **Energy Demand Forecasting**
+# **VoltVision: Energy Demand Forecasting**
 
 This repository contains code for forecasting energy demand using a forecasting model for electricity consumption in Finland using LSTM (Long Short-Term Memory) neural network.
 
