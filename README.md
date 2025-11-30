@@ -96,4 +96,12 @@ This page displays the Statistics obtained from the above forecasts.
 6. The visualizations help understand the electricity consumption patterns and the model's predictions over time.
 
 
+## **Blog Publication**
+
+To learn more about the project, methodology, and insights, read the full blog here:
+
+🔗 **[Energy Demand Forecasting Blog](https://app.readytensor.ai/publications/HB2CfHmfbIfL)**
+
+
+
 7. Overall, the code provides a comprehensive framework for building and evaluating an LSTM model for time series forecasting.
